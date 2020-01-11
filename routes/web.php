@@ -53,6 +53,104 @@ Route::get('Pesan/{Makan}',function($mkn,$nama,$harga)
  });
 
 
+//Route Optional 3 parameter
 
+ Route::get('pesanan/{makanan?}/{minum?}/{harga?}',function($makan=null,$minum=null,$harga=null) {
+ 	if (isset($makan)) {
+ 	    echo 'Anda Memesan '.$makan;
+ 	} if (isset($minum)) {
+ 		echo ' Dan '.$minum;
+ 	} if (isset($harga)) {
+ 		echo ' Dengan Harga '.$harga;
+ 	} if ($makan == null && $minum == null && $harga == null) {
+ 		echo 'Anda Belum Memesan.';
+ 	}
 
- 
+});
+
+ //testmodel
+ // • Mencari semua model:
+ Route::get('/testmodel', function() 
+ 	{
+ 	 $query = App\Post::all();
+     return $query;
+});
+
+ //• Mencari model berdasarkan id:
+
+ Route::get('/testmodel1', function() 
+ 	{
+ 	 $query = App\Post::find(1);
+     return $query;
+});
+   
+ // • Mencari model berdasarkan title
+  Route::get('/testmodel2', function() 
+ 	{
+ 	 $query = App\Post::where('title','like','%cepat nikah%')->get();
+     return $query;
+});
+
+  //• Mengubah record, (hapus semua isi function) :
+Route::get('/testmodel3', function() 
+ 	{
+ 	 $query = App\Post::find(1); 
+ 	 $query->title = "Ciri Keluarga Sakinah"; 
+ 	 $query->save(); 
+ 	 return $query;		
+});
+
+Route::get('/testmodel4', function() 
+ 	{
+ 	$query = App\Post::find(1); 
+ 	$query->delete(); 
+});
+
+Route::get('/testmodel5', function() 
+ 	{
+ 	$query= new App\Post;
+ 	$query->title = "7 Amalan Pembuka Jodoh"; 
+ 	$query->content = "shalat malam, sedekah, puasa sunah, silaturahmi, senyum, doa, tobat"; 
+ 	$query->save(); 
+ 	return $post; 
+});
+//
+Route::get('/gaji', function() 
+ 	{
+ 	 $query = App\penggajian::all();
+     return $query;
+});
+
+Route::get('/gaji1', function() 
+ 	{
+ 	 $query = App\penggajian::where('agama','=','islam')->get();
+     return $query;
+});
+
+Route::get('/gaji2', function() 
+ 	{
+ 	 $query = App\penggajian::where('id','nama','agama')
+ 	 ->where('agama','=','islam')
+ 	 ->get();
+     return $query;
+});
+
+Route::get('/gaji/{id}', function($id) 
+ 	{
+ 	 $query = App\penggajian::find($id);
+     return $query;
+});
+
+Route::get('tambah-data-gaji',function()
+{
+	$query = new App\penggajian();
+	$query->nama='syifa';
+	$query->jabatan='Sekretaris';
+	$query->jk ='Perempuan';
+	$query->alamat='Caringin';
+	$query->agama='Islam';
+	$query->total_gaji='700000';
+	$query->save();
+	return $query;
+});
+
