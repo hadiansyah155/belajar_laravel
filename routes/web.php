@@ -154,3 +154,22 @@ Route::get('tambah-data-gaji',function()
 	return $query;
 });
 
+Route::get('hallo','SekolahController@hallo');
+Route::get('world','SekolahController@dunia');
+
+Route::get('dunia1','SekolahController@dunia1');
+Route::get('dunia2','SekolahController@dunia2');
+Route::get('dunia3','SekolahController@dunia3');
+Route::get('dunia4','SekolahController@dunia4');
+Route::get('dunia5','SekolahController@dunia5');
+Route::get('dunia6','SekolahController@dunia6');
+Route::get('dunia7','SekolahController@dunia7');
+Route::get('dunia8','SekolahController@dunia8');
+Route::get('dunia9','SekolahController@dunia9');
+Route::get('dunia10','SekolahController@dunia10');
+
+Route::get('warnakucing/{warna}','SekolahController@jeniskucing');
+Route::get('warnakucing1/{warna?}','SekolahController@jeniskucing1');
+
+Route::get('warteg/{beli?}','SekolahController@warteg');
+
