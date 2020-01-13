@@ -169,7 +169,7 @@ Route::get('dunia9','SekolahController@dunia9');
 Route::get('dunia10','SekolahController@dunia10');
 
 Route::get('warnakucing/{warna}','SekolahController@jeniskucing');
-Route::get('warnakucing1/{warna?}','SekolahController@jeniskucing1');
-
 Route::get('warteg/{beli?}','SekolahController@warteg');
+
+Route::get('beli/{makanan?}/{harga?}', 'SekolahController@beli');
 

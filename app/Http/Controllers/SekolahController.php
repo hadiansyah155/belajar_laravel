@@ -78,13 +78,31 @@ class SekolahController extends Controller
     	}else {
     		return "warna kucing kamu adalah warna : ".$warna;
     	}
+    }
 
-    	public function warteg($beli= null)
+       public function warteg($beli= null)
     {
-    	if (!$beli) {
-    	    return "silahkan masukan item terlebih dahulu";
-    	}else {
-    		return "anda membeli : ".$beli;
-    	}
+        if (!$beli) {
+            return "***Makanan belum di pilih Silahkan Anda Untuk Memilih Terlebih Dahulu***";
+        }else {
+            return "Anda Membeli : ".$beli;
+        }
+    }
+
+     public function beli($makanan = null, $harga = null)
+    {
+         if (isset($makanan)) {
+            echo "Anda beli ".$makanan;
+        } if (isset($harga)) {
+            if ($harga >= 15000) {
+                echo " dengan Ukuran Jumbo.";
+            } elseif ($harga < 15000 && $harga >= 7500){
+                echo " dengan Ukuran Medium.";
+            } elseif ($harga < 7500) {
+                echo " dengan Ukuran Small.";
+            }
+        } if (!$makanan && !$harga) {
+            return "***Silahkan Masukan Item Terlebih Dahulu***";
+        }
     }
 }
