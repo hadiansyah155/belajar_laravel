@@ -173,3 +173,26 @@ Route::get('warteg/{beli?}','SekolahController@warteg');
 
 Route::get('beli/{makanan?}/{harga?}', 'SekolahController@beli');
 
+// CRUD BOOK
+Route::get('book', 'BookController@index');
+Route::get('book-create/{judul}','BookController@create');
+Route::get('book/{id}','BookController@show');
+Route::get('book-edit/{id}/{judul}','BookController@edit');
+Route::get('book-delete/{id}','BookController@delete');
+Route::get('book-select','BookController@select');
+Route::get('book-count','BookController@count');
+
+// //Artikel resource
+// Route::get('artikel','ArtikelController@index');
+// Route::get('artikel/create','ArtikelController@create');
+// Route::get('artikel/{id}','ArtikelController@show');
+// Route::get('artikel/{id}/edit','ArtikelController@edit');
+// Route::delete('artikel/{id}','ArtikelController@destroy');
+
+Route::resource('artikel','ArtikelController');
+
+//Passing Data
+Route::get('passing','PracticeController@pass');
+Route::get('passing1','PracticeController@pass1');
+Route::get('latsol','PracticeController@latsol');
+Route::get('barang','BarangController@index');
